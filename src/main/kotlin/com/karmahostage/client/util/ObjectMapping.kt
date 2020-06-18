@@ -2,10 +2,10 @@ package com.karmahostage.client.util
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.karmahostage.client.KarmahostageRequest
 
-class ObjectMapping {
+open class ObjectMapping {
 
     val objectmapper: ObjectMapper = ObjectMapper()
 
@@ -18,7 +18,12 @@ class ObjectMapping {
         return objectmapper.readValue(string, clazz)
     }
 
+    fun transform(obj: Any): String {
+        return objectmapper.writeValueAsString(obj)
+    }
+
     fun <T> transformList(string: String, clazz: Class<T>): List<T> {
         return objectmapper.readValue(string, objectmapper.typeFactory.constructCollectionType(List::class.java, clazz))
     }
 }
+

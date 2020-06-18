@@ -129,4 +129,15 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/KarmaHostage/java-client</url>
+        </snapshotRepository>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/KarmaHostage/java-client</url>
+        </repository>
+    </distributionManagement>
+
 </project>
