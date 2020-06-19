@@ -2,6 +2,7 @@ package com.karmahostage.client
 
 import com.karmahostage.client.key.KarmahostageKeyResource
 import com.karmahostage.client.net.APIClient
+import com.karmahostage.client.secret.KarmahostageSecretResource
 import com.karmahostage.client.util.ObjectMapping
 
 class Karmahostage(apiKey: String, endpoint: String) {
@@ -12,6 +13,10 @@ class Karmahostage(apiKey: String, endpoint: String) {
 
     fun keys(): KarmahostageKeyResource {
         return KarmahostageKeyResource(apiClient, ObjectMapping())
+    }
+
+    fun secrets(): KarmahostageSecretResource {
+        return KarmahostageSecretResource(apiClient, ObjectMapping())
     }
 
     class Builder {
