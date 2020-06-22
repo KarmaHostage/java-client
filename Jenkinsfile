@@ -11,11 +11,8 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when {
-                allOf {
-                    tag 'release*'
-                }
-            }              steps {
+          when { tag pattern: "release-\\d+", comparator: "REGEXP"}
+          steps {
                   echo 'Deploying only because this commit is tagged...'
                   sh './ci/deploy.sh'
            }
