@@ -5,7 +5,7 @@
 
     <groupId>com.karmahostage</groupId>
     <artifactId>karmahostage-java</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>Karmahostage Java Client</name>
     <description>Java Client for Karmahostage Services</description>
 
