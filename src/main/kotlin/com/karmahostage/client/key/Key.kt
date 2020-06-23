@@ -2,13 +2,13 @@ package com.karmahostage.client.key
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.karmahostage.client.decryption.DecryptionResource
-import com.karmahostage.client.decryption.DecryptionResponse
 import com.karmahostage.client.encryption.EncryptionResource
-import com.karmahostage.client.encryption.EncryptionResponse
 import com.karmahostage.client.net.APIClient
 import com.karmahostage.client.sign.SignatureResource
-import com.karmahostage.client.sign.SignatureResponse
 import com.karmahostage.client.util.ObjectMapping
+import com.karmahostage.cryptography.response.DecryptionResponse
+import com.karmahostage.cryptography.response.EncryptionResponse
+import com.karmahostage.signature.response.SignatureResponse
 import java.util.*
 
 data class Key(

@@ -3,6 +3,8 @@ package com.karmahostage.client.encryption
 import com.karmahostage.client.key.Key
 import com.karmahostage.client.net.APIClient
 import com.karmahostage.client.util.ObjectMapping
+import com.karmahostage.cryptography.request.EncryptionRequest
+import com.karmahostage.cryptography.response.EncryptionResponse
 
 class EncryptionResource(private val apiClient: APIClient,
                          private val key: Key,

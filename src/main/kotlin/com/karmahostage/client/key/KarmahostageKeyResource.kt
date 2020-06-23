@@ -2,6 +2,8 @@ package com.karmahostage.client.key
 
 import com.karmahostage.client.net.APIClient
 import com.karmahostage.client.util.ObjectMapping
+import com.karmahostage.key.request.CreateKeyRequest
+import com.karmahostage.key.response.KeyCreatedResponse
 
 class KarmahostageKeyResource(val apiClient: APIClient,
                               val objectMapping: ObjectMapping) {
@@ -9,7 +11,7 @@ class KarmahostageKeyResource(val apiClient: APIClient,
     fun create(name: String): KeyCreatedResponse? {
         return apiClient.post(
                 "/keys",
-                objectMapping.transform(CreateKeyCommand(
+                objectMapping.transform(CreateKeyRequest(
                         name = name
                 ))
         )?.let {
@@ -17,7 +19,7 @@ class KarmahostageKeyResource(val apiClient: APIClient,
         }
     }
 
-    fun create(createKeyCommand: CreateKeyCommand): KeyCreatedResponse? {
+    fun create(createKeyCommand: CreateKeyRequest): KeyCreatedResponse? {
         return apiClient.post(
                 "/keys",
                 objectMapping.transform(createKeyCommand)

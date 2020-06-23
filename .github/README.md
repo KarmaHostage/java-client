@@ -16,6 +16,16 @@ implementation "com.karmahostage:karmahostage-java:0.0.1"
 ## Maven users
 
 ```xml
+<repositories>
+    <repository>
+        <id>github-karmahostage-api</id>
+         <name>GitHub Karmahostage API Apache Maven Packages</name>
+         <url>https://maven.pkg.github.com/Karmahostage/Scorpio</url>
+    </repository>
+</repositories>
+```
+
+```xml
 <dependency>
   <groupId>com.karmahostage</groupId>
   <artifactId>karmahostage-java</artifactId>

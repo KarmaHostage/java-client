@@ -1,9 +1,10 @@
 package com.karmahostage.client.decryption
 
-import com.karmahostage.client.encryption.DecryptionRequest
 import com.karmahostage.client.key.Key
 import com.karmahostage.client.net.APIClient
 import com.karmahostage.client.util.ObjectMapping
+import com.karmahostage.cryptography.request.DecryptionRequest
+import com.karmahostage.cryptography.response.DecryptionResponse
 
 class DecryptionResource(private val apiClient: APIClient,
                          private val key: Key,
