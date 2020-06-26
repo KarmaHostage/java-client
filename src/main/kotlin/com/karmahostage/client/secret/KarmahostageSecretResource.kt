@@ -19,7 +19,9 @@ class KarmahostageSecretResource(val apiClient: APIClient,
     }
 
     fun retrieveByKey(key: String): ExposedSecretResponse? {
-        return apiClient.get("/secret?path=$key")?.let {
+        return apiClient.get("/secrets?key=$key")?.takeIf {
+            it.response != ""
+        }?.let {
             return objectMapping.transform(
                     it.response,
                     ExposedSecretResponse::class.java
