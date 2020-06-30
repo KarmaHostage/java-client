@@ -20,7 +20,7 @@ implementation "com.karmahostage:karmahostage-java:0.0.1"
     <repository>
         <id>github-karmahostage-api</id>
          <name>GitHub Karmahostage API Apache Maven Packages</name>
-         <url>https://maven.pkg.github.com/Karmahostage/Scorpio</url>
+         <url>https://maven.pkg.github.com/Karmahostage/maven-repo</url>
     </repository>
 </repositories>
 ```
@@ -29,7 +29,7 @@ implementation "com.karmahostage:karmahostage-java:0.0.1"
 <dependency>
   <groupId>com.karmahostage</groupId>
   <artifactId>karmahostage-java</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.4</version>
 </dependency>
 ```
 
