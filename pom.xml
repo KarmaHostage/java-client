@@ -5,7 +5,7 @@
 
     <groupId>com.karmahostage.client</groupId>
     <artifactId>karmahostage-java</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.5</version>
     <name>Karmahostage Java Client</name>
     <description>Java Client for Karmahostage Services</description>
 
@@ -20,7 +20,7 @@
         <kotlin.version>1.3.72</kotlin.version>
         <kotlinx-coroutines-core.version>1.3.5</kotlinx-coroutines-core.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
-        <karmahostage-api.version>0.0.5-SNAPSHOT</karmahostage-api.version>
+        <karmahostage-api.version>0.0.5</karmahostage-api.version>
     </properties>
 
     <dependencies>
