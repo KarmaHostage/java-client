@@ -1,25 +1,23 @@
 package com.karmahostage.client.net
 
 import com.karmahostage.client.KarmahostageConfig
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
 
 class APIClient(val config: KarmahostageConfig) {
-    private val client: OkHttpClient = OkHttpClient()
-
     fun get(endpoint: String): ApiResponse? {
         return try {
-            val request = Request.Builder()
-                    .addHeader("X-API-KEY", config.apiKey)
-                    .url(constructFullUrl(endpoint))
+            val request = HttpRequest.newBuilder()
+                    .GET()
+                    .uri(URI.create(constructFullUrl(endpoint)))
+                    .header("X-API-KEY", config.apiKey)
                     .build()
-            val execute = client.newCall(
-                    request
-            ).execute()
-            ApiResponse(execute.body!!.string())
+            val response = HttpClient.newHttpClient()
+                    .send(request, HttpResponse.BodyHandlers.ofString())
+            ApiResponse(response.body())
         } catch (ioException: IOException) {
             ioException.printStackTrace()
             null
@@ -29,13 +27,15 @@ class APIClient(val config: KarmahostageConfig) {
     fun post(endpoint: String,
              content: String? = null): ApiResponse? {
         return try {
-            val request = Request.Builder()
-                    .addHeader("X-API-KEY", config.apiKey)
-                    .url(constructFullUrl(endpoint))
-                    .post(content?.toRequestBody("application/json".toMediaType()) ?: "".toRequestBody())
+            val request = HttpRequest.newBuilder()
+                    .POST(HttpRequest.BodyPublishers.ofString(content))
+                    .uri(URI.create(constructFullUrl(endpoint)))
+                    .header("X-API-KEY", config.apiKey)
+                    .header("Content-Type", "application/json")
                     .build()
-            val execute = client.newCall(request).execute()
-            ApiResponse(execute.body!!.string())
+            val response = HttpClient.newHttpClient()
+                    .send(request, HttpResponse.BodyHandlers.ofString())
+            ApiResponse(response.body())
         } catch (ex: Exception) {
             null
         }
